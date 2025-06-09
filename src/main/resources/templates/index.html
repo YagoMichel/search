@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Dashcode - HTML Template</title>
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" href="assets/css/rt-plugins.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <!-- End : Theme CSS-->
+    <script src="assets/js/settings.js" sync></script>
+</head>
+
+<body class=" font-inter dashcode-app" id="body_class">
+  <div class="offcanvas offcanvas-end fixed bottom-0 flex flex-col max-w-full bg-white dark:bg-slate-800 invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 ltr:right-0 rtl:left-0 border-none w-96" tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
+        <div class="offcanvas-header flex items-center justify-between p-4 pt-3 border-b border-b-slate-300">
+            <div>
+            <h3 class="block text-xl font-Inter text-slate-900 font-medium dark:text-[#eee]">
+                Configuración de tema
+            </h3>
+            <p class="block text-sm font-Inter font-light text-[#68768A] dark:text-[#eee]">Personaliza la página a tiempo real</p>
+            </div>
+            <button type="button" class="box-content text-2xl w-4 h-4 p-2 pt-0 -my-5 -mr-2 text-black dark:text-white border-none rounded-none opacity-100 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="offcanvas"><iconify-icon icon="line-md:close"></iconify-icon></button>
+        </div>
+        <div class="offcanvas-body flex-grow overflow-y-auto">
+            <div class="settings-modal">
+            <div class="p-6">
+                <h3 class="mt-4">Temas</h3>
+                <form class="input-area flex items-center space-x-8 rtl:space-x-reverse" id="themeChanger">
+                <div class="input-group flex items-center">
+                    <input type="radio" id="light" name="theme" value="light" class="themeCustomization-checkInput">
+                    <label for="light" class="themeCustomization-checkInput-label">Claro</label>
+                </div>
+                <div class="input-group flex items-center">
+                    <input type="radio" id="dark" name="theme" value="dark" class="themeCustomization-checkInput">
+                    <label for="dark" class="themeCustomization-checkInput-label">Oscuro</label>
+                </div>
+                <div class="input-group flex items-center">
+                    <input type="radio" id="semiDark" name="theme" value="semiDark" class="themeCustomization-checkInput">
+                    <label for="semiDark" class="themeCustomization-checkInput-label">Semi Oscuro</label>
+                </div>
+                </form>
+            </div>
+            <div class="divider"></div>
+            <div class="p-6">
+
+                <div class="flex items-center justify-between mt-5">
+                <h3 class="!mb-0">Invertir</h3>
+                <label id="rtl_ltr" class="relative inline-flex h-6 w-[46px] items-center rounded-full transition-all duration-150 cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <span class="w-11 h-6 bg-gray-200 peer-focus:outline-none ring-0 rounded-full peer dark:bg-gray-900 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-black-600"></span>
+                </label>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="p-6">
+                <div id="menuCollapse" class="flex items-center justify-between mt-5">
+                <h3 class="!mb-0">Colapsar menú</h3>
+                <label class="relative inline-flex h-6 w-[46px] items-center rounded-full transition-all duration-150 cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <span class="w-11 h-6 bg-gray-200 peer-focus:outline-none ring-0 rounded-full peer dark:bg-gray-900 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-black-500"></span>
+                </label>
+                </div>
+                <div id="menuHidden" class="!flex items-center justify-between mt-5">
+                <h3 class="!mb-0">Ocultar menú</h3>
+                <label id="menuHide" class="relative inline-flex h-6 w-[46px] items-center rounded-full transition-all duration-150 cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <span class="w-11 h-6 bg-gray-200 peer-focus:outline-none ring-0 rounded-full peer dark:bg-gray-900 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-black-500"></span>
+                </label>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!--Creando la barra de navegacion-->
+<div class="flex flex-col justify-between min-h-screen">
+  <div>
+    <!-- BEGIN: Header -->
+    <div class="z-[9]" id="app_header">
+      <div class="app-header z-[999]  bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
+        <div class="flex justify-between items-center h-full">
+          <!-- Parte izquierda del header -->
+          <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
+            <a href="index.html" class="mobile-logo xl:hidden inline-block">
+              <img src="assets/images/logo/logo-c.svg" class="black_logo" alt="logo">
+              <img src="assets/images/logo/logo-c-white.svg" class="white_logo" alt="logo">
+            </a>
+            <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
+              <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
+            </button>
+            <button class="flex items-center xl:text-sm text-lg xl:text-slate-400 text-slate-800 dark:text-slate-300 px-1 rtl:space-x-reverse search-modal" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <img src="assets/images/logo/logo-ipn.svg" alt="">
+              <p class="p-5">Instituto Politécnico Nacional</p>
+            </button>
+          </div>
+
+          <!-- Parte derecha del header con navegación -->
+          <div class="flex items-center">
+            <ul class="nav nav-tabs flex flex-row list-none border-b-0 pl-0 mb-0 gap-x-2" id="tabs-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a href="#"
+                  class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-6 py-4 hover:border-transparent focus:border-transparent active dark:text-slate-300"
+                  id="tabs-home-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-home-withIcon" role="tab"
+                  aria-controls="tabs-home-withIcon" aria-selected="false">
+                  <iconify-icon class="mr-2" icon="heroicons-outline:home"></iconify-icon>
+                  Inicio
+                </a>
+              </li>
+              
+              <li class="nav-item" role="presentation">
+                <a href="#tabs-messages-withIcon"
+                  class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-6 py-4 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                  id="tabs-messages-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages-withIcon" role="tab"
+                  aria-controls="tabs-messages-withIcon" aria-selected="true">
+                  <iconify-icon class="mr-2" icon="heroicons-outline:chat-bubble-left-right"></iconify-icon>
+                  Blog
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a href="#"
+                  class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-6 py-4 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                  id="tabs-settings-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-settings-withIcon" role="tab"
+                  aria-controls="tabs-settings-withIcon" aria-selected="false">
+                  <iconify-icon class="mr-2" icon="heroicons-outline:cog-8-tooth"></iconify-icon>
+                  Configuración
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a href="#"
+                  class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-6 py-4 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                  id="tabs-settings-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-settings-withIcon" role="tab"
+                  aria-controls="tabs-settings-withIcon" aria-selected="false">
+                  <iconify-icon class="mr-2" icon="heroicons-outline:arrow-top-right-on-square"></iconify-icon>
+                  Salir
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- [if IE]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif] -->
+  <main class="app-wrapper">
+    <div class="content-wrapper transition-all duration-150"  id="content_wrapper">
+          <div class="page-content">
+            <div class="transition-all duration-150 container-fluid" id="page_layout">
+              <div id="content_layout">
+
+
+
+
+
+                <!-- BEGIN: Breadcrumb -->
+                <div class="mb-5">
+                  <ul class="m-0 p-0 list-none">
+                    <li class="inline-block relative top-[3px] text-base text-primary-500 font-Inter ">
+                      <a href="index.html">
+                        <iconify-icon icon="heroicons-outline:home"></iconify-icon>
+                        <iconify-icon icon="heroicons-outline:chevron-right" class="relative text-slate-500 text-sm rtl:rotate-180"></iconify-icon>
+                      </a>
+                    </li>
+                    
+                    <li class="inline-block relative text-sm text-slate-500 font-Inter dark:text-white">
+                      Blog</li>
+                  </ul>
+                </div>
+                <!-- END: BreadCrumb -->
+                <div class="lg:flex flex-wrap blog-posts lg:space-x-5 space-y-5 lg:space-y-0 rtl:space-x-reverse">
+                  <div class="flex-none">
+                    <div class="lg:max-w-[360px]">
+                      <div class="card">
+                        <div class="card-body p-6">
+
+                          <!-- BEGIN: Blog Sidebar -->
+
+
+
+
+
+                          <div class="space-y-5 divide-y divide-slate-100 dark:divide-slate-700 -mx-6">
+                            <div class="px-6">
+                              <div class=" ">
+                                <div class="flex items-stretch inputGroup  has-append  ">
+                                  <div class="flex-1">
+                                    <div class="relative fromGroup">
+                                      <input type="text" id="search-input" class="input-group-control block w-full focus:outline-none py-2" placeholder="Search....">
+                                      <div class="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2 space-x-1 rtl:space-x-reverse"></div>
+                                      <!-- Contenedor para las sugerencias -->
+                                      <div id="suggestions-container" class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg hidden"></div>
+                                    </div>
+                                  </div>
+                                  <div class="flex-none input-group-addon right">
+                                    <div class="input-group-text  h-full append-slot">
+                                      <button type="button" class=" btn inline-flex justify-center btn-dark dark:bg-slate-600">
+                                        <span class="flex items-center">
+                                    <span class=" text-[20px] ">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            aria-hidden="true"
+                                            role="img"
+                                            class="iconify iconify--heroicons-outline"
+                                            width="1em"
+                                            height="1em"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0Z"></path>
+                                        </svg>
+                                    </span>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pt-4 px-6">
+                              <h4 class="text-slate-600 dark:text-slate-300 text-xl font-medium mb-4">
+                                Latest Blogs Post
+                              </h4>
+                              <ul class="list-item space-y-4">
+
+                              </ul>
+                            </div>
+                            <div class="pt-4 px-6">
+                              <h4 class="text-slate-600 dark:text-slate-300 text-xl font-medium mb-4">
+                                Category
+                              </h4>
+                              <ul class="list-item space-y-6">
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>Graphic Designer (214) </span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>Engineering Jobs (514) </span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>Mainframe Jobs (554)</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>Legal Jobs (457)</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>IT Jobs (1254) </span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>R&amp;D Jobs (554) </span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>Government Jobs (350) </span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="#" class="flex space-x-1 items-start leading-[1] text-sm text-slate-500 dark:text-slate-300 hover:text-slate-900 transition
+                                duration-150 rtl:space-x-reverse">
+                                    <span class="text-sm">
+                                <iconify-icon icon="heroicons:chevron-right-solid"></iconify-icon>
+                            </span>
+                                    <span>PSL Jobs (221)</span>
+                                  </a>
+                                </li>
+
+                              </ul>
+                            </div>
+                            <div class="pt-4 px-6">
+                              <h4 class="text-slate-600 dark:text-slate-300 text-xl font-medium mb-4">
+                                Popular tags
+                              </h4>
+                              <ul class="flex flex-wrap">
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Business</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Consulting</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Photographic</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Investment</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Camera</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Assurance</span>
+                                  </a>
+                                </li>
+
+                                <li class="mr-2 mb-2">
+                                  <a href=# class="text-xs font-normal text-slate-600 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 py-1 px-3 rounded-full hover:bg-slate-900 hover:text-white transition duration-150">
+                                    <span>Secutity</span>
+                                  </a>
+                                </li>
+
+                              </ul>
+                            </div>
+                            
+                          </div>
+                          <!-- END: Blog Sidebar -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <div class="grid xl:grid-cols-2 grid-cols-1 gap-5">
+                      <div class="xl:col-span-2 col-span-1">
+                        <div class="card">
+                          <div class="card-body p-6">
+                            <div class=" h-[248px] w-full mb-6 ">
+                              <img src=assets/images/all-img/post-1.png alt="" class=" w-full h-full  object-cover">
+                            </div>
+                            <div class="flex justify-between mb-4">
+                              <a href="#" class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                                <span>
+                                        <iconify-icon icon="heroicons-outline:calendar" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon>
+                                    </span>
+                                <span>
+                                        10/02/2021</span>
+                              </a>
+                              <div class="flex space-x-4 rtl:space-x-reverse">
+                                <a href="#">
+                                  <span class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                                            <iconify-icon icon="heroicons-outline:chat" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon> 3
+                                        </span>
+                                </a>
+                                <a href="#">
+                                  <span class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                                            <iconify-icon icon="heroicons-outline:share" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon> 4
+                                        </span>
+                                </a>
+                              </div>
+                            </div>
+                            <h5 class="card-title text-slate-900">
+                              <a href="blog-details.html">
+                                At Healthcare you will be treated by caring
+                              </a>
+                            </h5>
+                            <div class="card-text dark:text-slate-300 mt-4 space-y-4">
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet,
+                                consectetur adipiscing eli.
+                              </p>
+                              <button class="btn btn-outline-dark">Read more</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class=" h-[248px] w-full mb-6 ">
+                          <img src=assets/images/all-img/post-1.png alt="" class=" w-full h-full  object-cover">
+                        </div>
+                        <div class="px-6 pb-6">
+                          <div class="flex justify-between mb-4">
+                            <div>
+                              <h5 class="card-title text-slate-900">
+                                <a href="#">Lorem ipsum</a>
+                              </h5>
+                            </div>
+                            <a href="#" class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                              <span>
+                                    <iconify-icon icon="heroicons-outline:calendar" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon>
+                                </span>
+                              <span>
+                                    10/02/2021</span>
+                            </a>
+                          </div>
+                          <div class="card-text dark:text-slate-300 mt-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="mt-4 space-x-4 rtl:space-x-reverse">
+                              <a href="#" class="btn-a">
+                                Learn more
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class=" h-[248px] w-full  ">
+                          <img src=assets/images/all-img/post-1.png alt="" class=" w-full h-full  object-cover">
+                        </div>
+                        <div class="p-6">
+                          <div class="flex justify-between mb-4">
+                            <div>
+                              <h5 class="card-title text-slate-900">
+                                <a href="#">Lorem ipsum</a>
+                              </h5>
+                            </div>
+                            <a href="#" class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                              <span>
+                                    <iconify-icon icon="heroicons-outline:calendar" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon>
+                                </span>
+                              <span>
+                                    10/02/2021</span>
+                            </a>
+                          </div>
+                          <div class="card-text dark:text-slate-300 mt-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="mt-4 space-x-4 rtl:space-x-reverse">
+                              <a href="#" class="btn-a">
+                                Learn more
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class=" h-[248px] w-full mb-6 ">
+                          <img src=assets/images/all-img/post-1.png alt="" class=" w-full h-full  object-cover">
+                        </div>
+                        <div class="px-6 pb-6">
+                          <div class="flex justify-between mb-4">
+                            <div>
+                              <h5 class="card-title text-slate-900">
+                                <a href="#">Lorem ipsum</a>
+                              </h5>
+                            </div>
+                            <a href="#" class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                              <span>
+                                    <iconify-icon icon="heroicons-outline:calendar" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon>
+                                </span>
+                              <span>
+                                    10/02/2021</span>
+                            </a>
+                          </div>
+                          <div class="card-text dark:text-slate-300 mt-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="mt-4 space-x-4 rtl:space-x-reverse">
+                              <a href="#" class="btn-a">
+                                Learn more
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class=" h-[248px] w-full  ">
+                          <img src=assets/images/all-img/post-1.png alt="" class=" w-full h-full  object-cover">
+                        </div>
+                        <div class="p-6">
+                          <div class="flex justify-between mb-4">
+                            <div>
+                              <h5 class="card-title text-slate-900">
+                                <a href="#">Lorem ipsum</a>
+                              </h5>
+                            </div>
+                            <a href="#" class="inline-flex leading-5 text-slate-500 dark:text-slate-400 text-sm font-normal">
+                              <span>
+                                    <iconify-icon icon="heroicons-outline:calendar" class="text-slate-400 dark:text-slate-400 ltr:mr-2 rtl:ml-2 text-lg"></iconify-icon>
+                                </span>
+                              <span>
+                                    10/02/2021</span>
+                            </a>
+                          </div>
+                          <div class="card-text dark:text-slate-300 mt-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="mt-4 space-x-4 rtl:space-x-reverse">
+                              <a href="#" class="btn-a">
+                                Learn more
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEGIN: Footer For Desktop and tab -->
+      <footer class="md:block hidden" id="footer">
+        <div class="site-footer px-6 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-300 py-4 ltr:ml-[248px] rtl:mr-[248px]">
+          <div class="grid md:grid-cols-2 grid-cols-1 md:gap-5">
+            <div class="text-center ltr:md:text-start rtl:md:text-right text-sm">
+              COPYRIGHT ©
+              <span id="thisYear"></span>
+              DashCode, All rights Reserved
+            </div>
+            <div class="ltr:md:text-right rtl:md:text-end text-center text-sm">
+              Hand-crafted &amp; Made by
+              <a href="https://codeshaper.net" target="_blank" class="text-primary-500 font-semibold">
+                Codeshaper
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- END: Footer For Desktop and tab -->
+
+      <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center
+    backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
+        <a href="chat.html">
+          <div>
+            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900 ">
+        <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
+        <span class="absolute right-[5px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
+            justify-center rounded-full text-white z-[99]">
+          10
+        </span>
+            </span>
+            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+        Messages
+      </span>
+          </div>
+        </a>
+        <a href="profile.html" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
+      h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center">
+          <div class="h-[50px] w-[50px] rounded-full relative left-[0px] hrefp-[0px] custom-dropshadow">
+            <img src="assets/images/users/user-1.jpg" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
+          </div>
+        </a>
+        <a href="#">
+          <div>
+            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+        <iconify-icon icon="heroicons-outline:bell"></iconify-icon>
+        <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
+            justify-center rounded-full text-white z-[99]">
+          2
+        </span>
+            </span>
+            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
+        Notifications
+      </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+  <!-- scripts -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/rt-plugins.js"></script>
+  <script src="assets/js/app.js"></script>
+
+ <script src="assets/js/busqueda.js"></script>
+</body>
+</html>
