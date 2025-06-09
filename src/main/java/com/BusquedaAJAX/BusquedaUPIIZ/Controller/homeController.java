@@ -18,7 +18,8 @@ public class homeController {
 
     @GetMapping("/")
     public String home() {
-        return "index";
+        return "index.html";
+
     }
     @GetMapping("/api/search/suggestions")
     @ResponseBody
